@@ -1,0 +1,15 @@
+app-navbar {
+  width: 10%;
+  height: 100%;
+}
+
+app-sidebar {
+  width: 10%;
+  height: 100%;
+  float: left;
+}
+
+app-courses {
+  width: 90%;
+  float: right;  
+}
