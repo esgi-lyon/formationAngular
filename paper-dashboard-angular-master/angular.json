@@ -63,6 +63,10 @@
           "configurations": {
             "production": {
               "browserTarget": "pd-free-angularcli:build:production"
+            },
+            "hmr": {
+              "hmr": true,
+              "browserTarget": "pd-free-angularcli:build:hmr"
             }
           }
         },
