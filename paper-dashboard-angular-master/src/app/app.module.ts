@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { DemoDirective } from './directives/demo.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    DemoDirective
   ],
   imports: [
     BrowserAnimationsModule,

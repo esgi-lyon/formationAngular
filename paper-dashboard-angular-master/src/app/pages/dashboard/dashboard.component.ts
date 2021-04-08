@@ -85,7 +85,7 @@ export class DashboardComponent implements OnInit {
     new Stat('Capacity', 150, 'globe', 'warning'),
     new Stat('Revenue', 1235, 'money-coins','primary', '$'),
     new Stat('Error', 23, 'vector', 'danger'),
-    new Stat('Followers', 1235, 'favourite-28')
+    new Stat('Followers', 20000, 'favourite-28')
   ]
 
   public canvas : any;
