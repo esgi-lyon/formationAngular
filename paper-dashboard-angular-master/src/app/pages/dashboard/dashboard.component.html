@@ -1,18 +1,23 @@
 <div class="row">
+
+  <app-statistique class="col-lg-3 col-md-6 col-sm-6"></app-statistique>
+  <app-statistique class="col-lg-3 col-md-6 col-sm-6"></app-statistique>
+  <app-statistique class="col-lg-3 col-md-6 col-sm-6"></app-statistique>
+<!-- 
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body ">
         <div class="row">
           <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-globe text-warning"></i>
+            <div class="icon-big text-center">
+              <i class="nc-icon nc-{{ statCapacite.icone }} text-{{ statCapacite.appreciation }}"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">Capacity</p>
-              <p class="card-title">150GB
-                <p>
+              <p class="card-category">{{ statCapacite.titre }}</p>
+              <p class="card-title">{{ statCapacite.valeur }}
+              </p>
             </div>
           </div>
         </div>
@@ -30,15 +35,14 @@
       <div class="card-body ">
         <div class="row">
           <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-money-coins text-success"></i>
+            <div class="icon-big text-center">
+              <i class="nc-icon nc-{{ statRevenue.icone }} text-{{ statRevenue.appreciation }}"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">Revenue</p>
-              <p class="card-title">$ 1,345
-                <p>
+              <p class="card-category">{{ statRevenue.titre }}</p>
+              <p class="card-title">{{ statRevenue.valeur }}</p>
             </div>
           </div>
         </div>
@@ -57,13 +61,13 @@
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-vector text-danger"></i>
+              <i class="nc-icon nc-{{ statErrors.icone }} text-{{ statErrors.appreciation }}"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">Errors</p>
-              <p class="card-title">23
+              <p class="card-category">{{ statErrors.titre }}</p>
+              <p class="card-title"> {{ statErrors.valeur }}
                 <p>
             </div>
           </div>
@@ -83,13 +87,13 @@
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-favourite-28 text-primary"></i>
+              <i class="nc-icon nc-{{ statFollowers.icone }} text-{{statFollowers.appreciation}}"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">Followers</p>
-              <p class="card-title">+45K
+              <p class="card-category">{{ statFollowers.titre }}</p>
+              <p class="card-title">{{ statFollowers.valeur }}
                 <p>
             </div>
           </div>
@@ -102,7 +106,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 <div class="row">
   <div class="col-md-12">
