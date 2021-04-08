@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Stat } from 'app/shared/models/stat';
 
 @Component({
@@ -8,9 +8,11 @@ import { Stat } from 'app/shared/models/stat';
 })
 export class StatistiqueComponent implements OnInit {
 
-  public stat = new Stat("Capacity", "250 GB", "globe", "warning");
-  
-  constructor() { }
+  @Input()
+  public stat : Stat;
+
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }

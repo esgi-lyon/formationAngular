@@ -16,10 +16,14 @@ export class DashboardComponent implements OnInit{
   public chartEmail;
   public chartHours;
 
-  public statCapacite = new Stat("Capacity", "250 GB", "globe", "warning");
-  public statRevenue = new Stat("Revenue", "4500€", "money-coins", "success");
-  public statErrors = new Stat("Errors", "543", "vector", "danger");
-  public statFollowers = new Stat("Followers", "+76K", "favourite-28", "success");
+  private statCapacite = new Stat("Capacity", "250 GB", "globe", "warning");
+  private statRevenue = new Stat("Revenue", "4500€", "money-coins", "success");
+  private statErrors = new Stat("Errors", "543", "vector", "danger");
+  private statFollowers = new Stat("Followers", "+76K", "favourite-28", "success");
+
+  public tabStats = [
+    this.statCapacite, this.statRevenue, this.statErrors, this.statFollowers
+  ];
 
   ngOnInit(){
     this.chartColor = "#FFFFFF";
