@@ -1,115 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
-
+import Stat from '../stat/Stat';
 
 @Component({
     selector: 'dashboard-cmp',
-    //templateUrl: 'dashboard.component.html'
     template: `
-      <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-body ">
-            <div class="row">
-              <div class="col-5 col-md-4">
-                <div class="icon-big text-center icon-warning">
-                  <i class="nc-icon nc-globe text-warning"></i>
-                </div>
-              </div>
-              <div class="col-7 col-md-8">
-                <div class="numbers">
-                  <p class="card-category">Capacity</p>
-                  <p class="card-title">150GB
-                    <p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer ">
-            <hr>
-            <div class="stats">
-              <i class="fa fa-refresh"></i> Update Now
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-body ">
-            <div class="row">
-              <div class="col-5 col-md-4">
-                <div class="icon-big text-center icon-warning">
-                  <i class="nc-icon nc-money-coins text-success"></i>
-                </div>
-              </div>
-              <div class="col-7 col-md-8">
-                <div class="numbers">
-                  <p class="card-category">Revenue</p>
-                  <p class="card-title">$ 1,345
-                    <p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer ">
-            <hr>
-            <div class="stats">
-              <i class="fa fa-calendar-o"></i> Last day
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-body ">
-            <div class="row">
-              <div class="col-5 col-md-4">
-                <div class="icon-big text-center icon-warning">
-                  <i class="nc-icon nc-vector text-danger"></i>
-                </div>
-              </div>
-              <div class="col-7 col-md-8">
-                <div class="numbers">
-                  <p class="card-category">Errors</p>
-                  <p class="card-title">23
-                    <p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer ">
-            <hr>
-            <div class="stats">
-              <i class="fa fa-clock-o"></i> In the last hour
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-body ">
-            <div class="row">
-              <div class="col-5 col-md-4">
-                <div class="icon-big text-center icon-warning">
-                  <i class="nc-icon nc-favourite-28 text-primary"></i>
-                </div>
-              </div>
-              <div class="col-7 col-md-8">
-                <div class="numbers">
-                  <p class="card-category">Followers</p>
-                  <p class="card-title">+ {{ dashboardData.followers | number: '0.7' }}K
-                    <p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer ">
-            <hr>
-            <div class="stats">
-              <i class="fa fa-refresh"></i> Update now
-            </div>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let stat of stats">
+        <stat-cmp [stat]="stat"></stat-cmp>
       </div>
     </div>
     <div class="row">
@@ -179,11 +77,16 @@ import Chart from 'chart.js';
     </div>
     `
 })
-
 export class DashboardComponent implements OnInit {
 
   title = 'Website';
-  public dashboardData: any;
+
+  public stats = [
+    new Stat('Capacity', 150, 'globe', 'warning'),
+    new Stat('Revenue', 1235, 'money-coins','primary', '$'),
+    new Stat('Error', 23, 'vector', 'danger'),
+    new Stat('Followers', 1235, 'favourite-28')
+  ]
 
   public canvas : any;
   public ctx;
@@ -192,14 +95,6 @@ export class DashboardComponent implements OnInit {
   public chartHours;
 
     ngOnInit(){
-      this.dashboardData = {
-        capacity: 150,
-        error: 23,
-        lastConnexion: {
-          time: new Date('now')
-        },
-        followers: 40000
-      }
       this.chartColor = "#FFFFFF";
 
       this.canvas = document.getElementById("chartHours");
