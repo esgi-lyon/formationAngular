@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ViewEncapsulation } from '@angular/core';
 import Stat from "./Stat"
 
 @Component({
   selector: 'stat-cmp',
+  encapsulation: ViewEncapsulation.Emulated,
   template: `
-    <div class="card card-stats">
+    <div class="card card-stats" [appAccentHover]="stat.state">
       <div class="card-body ">
         <div class="row">
           <div class="col-5 col-md-4">

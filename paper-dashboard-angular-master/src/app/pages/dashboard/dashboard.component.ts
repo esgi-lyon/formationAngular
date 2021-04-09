@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
-import Stat from '../stat/Stat';
+import Stat, { State } from '../stat/Stat';
 
 @Component({
     selector: 'dashboard-cmp',
@@ -82,9 +82,9 @@ export class DashboardComponent implements OnInit {
   title = 'Website';
 
   public stats = [
-    new Stat('Capacity', 150, 'globe', 'warning'),
-    new Stat('Revenue', 1235, 'money-coins','primary', '$'),
-    new Stat('Error', 23, 'vector', 'danger'),
+    new Stat('Capacity', 150, 'globe', State.warning),
+    new Stat('Revenue', 1235, 'money-coins', State.primary, '$'),
+    new Stat('Error', 23, 'vector', State.danger),
     new Stat('Followers', 20000, 'favourite-28')
   ]
 

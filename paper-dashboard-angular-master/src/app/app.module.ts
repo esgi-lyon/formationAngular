@@ -13,6 +13,7 @@ import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { DemoDirective } from './directives/demo.directive';
+import { AccentHoverDirective } from './directives/accent-hover.directive';
 
 
 @NgModule({
