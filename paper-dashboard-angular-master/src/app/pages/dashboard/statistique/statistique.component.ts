@@ -12,6 +12,8 @@ export class StatistiqueComponent implements OnInit {
   @Input()
   public stat : Stat;
 
+  public demoDate = new Date(); 
+  
   constructor() {
   }
 
