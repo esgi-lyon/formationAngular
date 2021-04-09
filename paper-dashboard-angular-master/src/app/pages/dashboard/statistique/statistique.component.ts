@@ -22,4 +22,7 @@ export class StatistiqueComponent implements OnInit {
     console.log("resize window");
   }
 
+  getBorderClass() : string {
+    return "border-" + this.stat.appreciation;
+  }
 }
