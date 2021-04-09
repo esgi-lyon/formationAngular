@@ -25,6 +25,10 @@ export class DashboardComponent implements OnInit{
     this.statCapacite, this.statRevenue, this.statErrors, this.statFollowers
   ];
 
+  constructor() {
+
+  }
+
   ngOnInit(){
     this.chartColor = "#FFFFFF";
 

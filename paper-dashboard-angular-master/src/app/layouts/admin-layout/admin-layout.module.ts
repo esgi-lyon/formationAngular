@@ -16,6 +16,7 @@ import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StatistiqueComponent } from 'app/pages/dashboard/statistique/statistique.component';
+import { HoverBorderDirective } from 'app/shared/directives/hover-border.directive';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { StatistiqueComponent } from 'app/pages/dashboard/statistique/statistiqu
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    StatistiqueComponent
+    StatistiqueComponent,
+    HoverBorderDirective
   ]
 })
 

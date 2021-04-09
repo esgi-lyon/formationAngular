@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Stat } from 'app/shared/models/stat';
 
 @Component({
@@ -11,10 +11,15 @@ export class StatistiqueComponent implements OnInit {
   @Input()
   public stat : Stat;
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  @HostListener("window:resize")
+  callbackClick() {
+    console.log("resize window");
   }
 
 }
