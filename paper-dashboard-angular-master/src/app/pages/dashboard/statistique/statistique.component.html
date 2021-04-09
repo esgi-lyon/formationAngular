@@ -1,10 +1,10 @@
 
-<div class="card card-stats" appHoverBorder [borderClass]="getBorderClass()">
+<div class="card card-stats" appHoverBorder [borderClass]="getColorClass()">
   <div class="card-body ">
     <div class="row">
       <div class="col-5 col-md-4">
         <div class="icon-big text-center">
-          <i class="nc-icon nc-{{ stat.icone }} text-{{ stat.appreciation }}"></i>
+          <i class="nc-icon nc-{{ stat.icone }} text-{{ getColorClass() }}"></i>
         </div>
       </div>
       <div class="col-7 col-md-8">

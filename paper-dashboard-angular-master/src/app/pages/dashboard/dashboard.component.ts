@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Appreciation } from 'app/shared/models/appreciation.enum';
 import { Stat } from 'app/shared/models/stat';
 import Chart from 'chart.js';
 
@@ -16,10 +17,10 @@ export class DashboardComponent implements OnInit{
   public chartEmail;
   public chartHours;
 
-  private statCapacite = new Stat("Capacity", "250 GB", "globe", "warning");
-  private statRevenue = new Stat("Revenue", "4500€", "money-coins", "success");
-  private statErrors = new Stat("Errors", "543", "vector", "danger");
-  private statFollowers = new Stat("Followers", "+76K", "favourite-28", "success");
+  private statCapacite = new Stat("Capacity", "250 GB", "globe", Appreciation.AVERTISSEMENT);
+  private statRevenue = new Stat("Revenue", "4500€", "money-coins", Appreciation.AUCUN_PROBLEME);
+  private statErrors = new Stat("Errors", "543", "vector", Appreciation.ERREUR);
+  private statFollowers = new Stat("Followers", "+76K", "favourite-28", Appreciation.AUCUN_PROBLEME);
 
   public tabStats = [
     this.statCapacite, this.statRevenue, this.statErrors, this.statFollowers

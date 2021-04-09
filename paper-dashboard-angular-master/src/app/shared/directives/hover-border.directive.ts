@@ -13,13 +13,13 @@ export class HoverBorderDirective {
   @HostListener("mouseenter")
   onMouseEnter() {
     this.rend.addClass(this.el.nativeElement, "border");
-    this.rend.addClass(this.el.nativeElement, this.borderClass);
+    this.rend.addClass(this.el.nativeElement, "border-" + this.borderClass);
   }
 
   @HostListener("mouseleave")
   onMouseLeave() {
     this.rend.removeClass(this.el.nativeElement, "border");
-    this.rend.removeClass(this.el.nativeElement, this.borderClass);
+    this.rend.removeClass(this.el.nativeElement, "border-" + this.borderClass);
   }
 
 }

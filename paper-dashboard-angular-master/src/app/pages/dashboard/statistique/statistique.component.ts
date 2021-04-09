@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Appreciation } from 'app/shared/models/appreciation.enum';
 import { Stat } from 'app/shared/models/stat';
 
 @Component({
@@ -22,7 +23,16 @@ export class StatistiqueComponent implements OnInit {
     console.log("resize window");
   }
 
-  getBorderClass() : string {
-    return "border-" + this.stat.appreciation;
+  getColorClass() : string {
+    let border = "success";
+
+    switch(this.stat.appreciation) {
+      case Appreciation.AVERTISSEMENT : 
+        border = "warning";
+        break;
+      case Appreciation.ERREUR : 
+        border = "danger";
+    }
+    return border;
   }
 }
