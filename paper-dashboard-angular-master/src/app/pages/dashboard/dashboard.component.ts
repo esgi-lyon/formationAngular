@@ -26,6 +26,13 @@ export class DashboardComponent implements OnInit{
     this.statCapacite, this.statRevenue, this.statErrors, this.statFollowers
   ];
 
+  deleteStat(titreStat : string) {
+    let indexStat = this.tabStats.findIndex(stat => stat.titre === titreStat); 
+    if (indexStat != -1) {
+      this.tabStats.splice(indexStat, 1);
+    }
+  }
+
   constructor() {
 
   }

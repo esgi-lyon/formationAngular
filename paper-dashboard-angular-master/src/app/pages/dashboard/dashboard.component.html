@@ -1,7 +1,7 @@
 <div class="row">
 
-  <app-statistique *ngFor="let s of tabStats" [stat]="s" class="col-lg-3 col-md-6 col-sm-6"></app-statistique>
-
+  <app-statistique *ngFor="let s of tabStats" [stat]="s" class="col-lg-3 col-md-6 col-sm-6" (demandeSuppression)="deleteStat(s.titre)"></app-statistique>
+  
 </div>
 <div class="row">
   <div class="col-md-12">

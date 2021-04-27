@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Appreciation } from 'app/shared/models/appreciation.enum';
 import { Stat } from 'app/shared/models/stat';
 
@@ -12,6 +12,9 @@ export class StatistiqueComponent implements OnInit {
   @Input()
   public stat : Stat;
 
+  @Output()
+  public demandeSuppression : EventEmitter<any> = new EventEmitter();
+
   public demoDate = new Date(); 
   
   constructor() {
@@ -23,6 +26,10 @@ export class StatistiqueComponent implements OnInit {
   @HostListener("window:resize")
   callbackClick() {
     console.log("resize window");
+  }
+
+  suppressionStat() {
+    this.demandeSuppression.emit();
   }
 
   getColorClass() : string {
