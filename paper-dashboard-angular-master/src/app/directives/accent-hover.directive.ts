@@ -10,6 +10,7 @@ export class AccentHoverDirective {
   constructor(private el: ElementRef) {}
 
   highlight() {
+    console.log(this.accent)
     this.el.nativeElement.classList.toggle(`border`)
     this.el.nativeElement.classList.toggle(`border-${String(this.accent)}`)
   }

@@ -11,4 +11,8 @@ export default class {
     public symbol: string = '',
     public lastRefresh: Date | null = null
   ) {};
+
+  getStateStr() {
+    return State[this.state]
+  }
 }
