@@ -5,7 +5,8 @@ import { State } from 'app/pages/stat/Stat';
   name: 'stateToColor'
 })
 export class StateToColorPipe implements PipeTransform {
-  transform(value: State): string {
+  transform(value: State, log: boolean = false, consoleFn: string = 'log'): string {
+    if (log) console[consoleFn]("Logging from stateToColor :", State[value], value)
     return State[value]
   }
 }

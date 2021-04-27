@@ -13,12 +13,16 @@ import Stat from "./Stat"
   selector: 'stat-cmp',
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-    <div class="card card-stats" [appAccentHover]="stat.state | stateToColor">
+    <div class="card card-stats" [appAccentHover]="stat.state | stateToColor:true:'info'">
       <div class="card-body ">
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-{{ stat.state | stateToColor }}">
-              <i class="nc-icon nc-{{ stat.icon }} text-{{ stat.state | stateToColor}}" appDemo></i>
+              <i
+                class="nc-icon nc-{{ stat.icon }} text-{{ stat.state | stateToColor }}"
+                appDemo
+              >
+              </i>
             </div>
           </div>
           <div class="col-7 col-md-8">
