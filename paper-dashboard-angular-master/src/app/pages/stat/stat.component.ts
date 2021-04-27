@@ -1,4 +1,12 @@
-import { Component, OnInit, Input, HostListener, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  HostListener,
+  ViewEncapsulation,
+  EventEmitter,
+  Output
+} from '@angular/core';
 import Stat from "./Stat"
 
 @Component({
@@ -26,18 +34,22 @@ import Stat from "./Stat"
       </div>
       <div class="card-footer">
         <hr>
-        <div class="stats">
+        <div class="stats d-flex">
           <i class="fa fa-refresh"></i> {{ stat.lastRefresh || 'Update now' }}
+          <i class="fa fa-trash px-2 py-1 text-danger ml-auto btn btn-outline-danger" (click)="this.askDelete.emit()"></i>
         </div>
       </div>
     </div>
   `
 })
 export class StatComponent implements OnInit {
-  @Input() public stat: Stat;
-  constructor() {};
+  @Output()
+  public askDelete: EventEmitter<void> = new EventEmitter();
 
-  ngOnInit(): void {}
+  @Input() public stat: Stat;
+  constructor() { };
+
+  ngOnInit(): void { }
 
   @HostListener('click')
   callback() {
