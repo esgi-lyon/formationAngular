@@ -1,18 +1,14 @@
 export enum State {
-  info, primary, danger, warning,
+  SUCCESS, DANGER, WARNING,
 }
 
 export default class {
   constructor(
+    public id: string,
     public title: string,
-    public num: number,
+    public value: number,
     public icon: string,
-    public state: State = State.info,
-    public symbol: string = '',
-    public lastRefresh: Date | null = null
+    public appreciation: State = State.SUCCESS,
+    public updatedAt: Date | null = null
   ) {};
-
-  getStateStr() {
-    return State[this.state]
-  }
 }

@@ -13,13 +13,13 @@ import Stat from "./Stat"
   selector: 'stat-cmp',
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-    <div class="card card-stats" [appAccentHover]="stat.state | stateToColor:true:'info'">
+    <div class="card card-stats" [appAccentHover]="stat.appreciation | stateToColor:true:'info'">
       <div class="card-body ">
         <div class="row">
           <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-{{ stat.state | stateToColor }}">
+            <div class="icon-big text-center icon-{{ stat.appreciation | stateToColor }}">
               <i
-                class="nc-icon nc-{{ stat.icon }} text-{{ stat.state | stateToColor }}"
+                class="nc-icon nc-{{ stat.icon || 'globe' }} text-{{ stat.appreciation | stateToColor }}"
                 appDemo
               >
               </i>
@@ -30,7 +30,7 @@ import Stat from "./Stat"
               <p class="card-category">{{ stat.title }}</p>
               <!-- Directive try -->
               <p class="card-title" >
-                {{ stat.symbol }} {{ stat.num }}
+                {{ stat.value }}
               <p>
             </div>
           </div>
@@ -39,7 +39,7 @@ import Stat from "./Stat"
       <div class="card-footer">
         <hr>
         <div class="stats d-flex">
-          <i class="fa fa-refresh"></i> {{ stat.lastRefresh || 'Update now' }}
+          <i class="fa fa-refresh"></i> {{ stat.updatedAt || 'Update now' }}
           <i class="fa fa-trash px-2 py-1 text-danger ml-auto btn btn-outline-danger" (click)="this.askDelete.emit()"></i>
         </div>
       </div>
@@ -51,12 +51,10 @@ export class StatComponent implements OnInit {
   public askDelete: EventEmitter<void> = new EventEmitter();
 
   @Input() public stat: Stat;
-  constructor() { };
+  constructor() {};
 
-  ngOnInit(): void { }
+  ngOnInit(): void {};
 
   @HostListener('click')
-  callback() {
-    console.log(this.stat.title);
-  }
+  callback() {}
 }

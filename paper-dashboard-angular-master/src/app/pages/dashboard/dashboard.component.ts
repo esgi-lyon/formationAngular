@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
 import Stat, { State } from '../stat/Stat';
+import { StatService } from '../../services/statService'
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'dashboard-cmp',
     template: `
     <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let stat of stats; let i = index">
-        <stat-cmp [stat]="stat" (askDelete)="stats.splice(i, 1)"></stat-cmp>
+      <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let stat of stats | async; let i = index">
+        <stat-cmp [stat]="stat" (askDelete)="statService.deleteStat(stat)"></stat-cmp>
       </div>
     </div>
     <div class="row">
@@ -82,12 +84,12 @@ export class DashboardComponent implements OnInit {
 
   title = 'Website';
 
-  public stats = [
-    new Stat('Capacity', 150, 'globe', State.warning),
-    new Stat('Revenue', 1235, 'money-coins', State.primary, '$'),
-    new Stat('Error', 23, 'vector', State.danger),
-    new Stat('Followers', 20000, 'favourite-28')
-  ]
+  public stats: Observable<Stat[]>;
+  public statService: StatService;
+
+  constructor(statService: StatService) {
+    this.statService = statService
+  }
 
   public canvas : any;
   public ctx;
@@ -96,6 +98,8 @@ export class DashboardComponent implements OnInit {
   public chartHours;
 
   ngOnInit(){
+    this.stats = this.statService.getStats();
+
     this.chartColor = "#FFFFFF";
 
     this.canvas = document.getElementById("chartHours");

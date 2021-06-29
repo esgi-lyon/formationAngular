@@ -5,14 +5,13 @@ import { State } from 'app/pages/stat/Stat';
   selector: '[appAccentHover]'
 })
 export class AccentHoverDirective {
-  @Input('appAccentHover') private accent?: State = State.info;
+  @Input('appAccentHover') private accent?: State = State.SUCCESS;
 
   constructor(private el: ElementRef) {}
 
   highlight() {
-    console.log(this.accent)
     this.el.nativeElement.classList.toggle(`border`)
-    this.el.nativeElement.classList.toggle(`border-${String(this.accent)}`)
+    this.el.nativeElement.classList.toggle(`border-${String(this.accent).toLowerCase()}`)
   }
 
   @HostListener('mouseenter') onMouseEnter() {
